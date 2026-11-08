@@ -4,6 +4,38 @@ A causal state-space laboratory in dependency-free Python: exact affine
 recurrence, a work-efficient associative prefix scan, fixed LTI convolution,
 and hand-derived reverse gradients for a small input-gated recurrence.
 
+## v0.2: exact reverse scans and curvature
+
+![Exact reverse scan, transposition and Hessian-vector certificates](assets/adjoint-audit.svg)
+
+The new exact path differentiates the supplied diagonal affine pairs, separately
+from the float gated model below. Shifted-decay reverse scans return every
+parameter VJP; tangent scans return every state JVP. The exact dot-product
+identity is `-817/120 = -817/120`. A deliberately wrong reverse index produces
+`139/360`, exposing a gap of `-259/36` on this fixture. Zero-direction controls
+also show why this test alone is not a universal correctness proof.
+
+A hand-written forward-over-reverse path computes the squared-loss gradient
+and Hessian-vector product without constructing either dense matrix. The loss
+is `2473/288`, first directional derivative `83689/17280`, and second
+`20591177/414720`. Independent bivariate polynomial expansion checks all
+**432 parameter coordinates** across 36 models, including each HVP coordinate,
+plus 24 full directional checks and 24 Hessian symmetry checks. Independent
+future-decay product sums check adjoints on another 51 models.
+
+[Derivation, exact contracts and six attributed sources](ADJOINT.md).
+Established scan-AD techniques, not a new algorithm, general AD engine,
+trained model or GPU benchmark. Five separate scan DAGs are recorded; their
+counters exclude coefficient construction, loss reductions and gradient
+products, and are not end-to-end derivative latency. All v0.1 saved evidence
+and behavior below are preserved.
+
+```bash
+python -m scanlab adjoint-demo
+python -m scanlab adjoint examples/adjoint-input.json
+bash examples/adjoint-demo.sh
+```
+
 ![Exact algebra, actual work, floating failure and gradients](https://raw.githubusercontent.com/midya8/scanlab/42355326cba179c5af1e8225192162918eac532c/assets/scan-audit.svg)
 
 ## The claims are deliberately separate
@@ -43,13 +75,15 @@ bash examples/demo.sh
 python examples/render_demo.py --check
 ```
 
-30 tests include 729 scalar affine associativity cases, 264 length/width cases
+46 tests (30 original plus 16 new) include 729 scalar affine associativity cases, 264 length/width cases
 against a closed-form expansion, 120 LTI models, full DAG scope/dependency/count
 checks, every length through 128 for work/span bounds, 123 independent gradient
 probes, 64 streaming partitions, strict input errors and both real failure
 controls. The 114-cell figure binds the complete report, including hidden
 intermediate factors, not only headline numbers. Five CI jobs check Python
-3.10-3.13 plus both commands from an installed seven-module wheel outside checkout.
+3.10-3.13 plus all four commands from an installed eight-module wheel outside checkout.
+The new 68-cell SVG binds every shown value and embeds all five full scan
+DAGs; the original 114-cell figure is unchanged.
 
 ```python
 from scanlab.exact import audit
