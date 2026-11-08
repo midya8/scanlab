@@ -92,9 +92,10 @@ carry_j      = z_j*a_tj
 
 Final carry is the initial-state gradient. The fixture reports all 16 gradients
 and central differences with epsilon 1e-6, maximum error
-`6.684514053389989e-12`. Tests separately probe 123 parameter/input/initial
+`8.419237529366796e-12`. Tests separately probe 123 parameter/input/initial
 derivatives across widths 1,2,3 and lengths 1,2,5, using independent direct
-forward losses. Finite differences and floating calculations validate these
+forward losses. Float reductions explicitly use math.fsum so Python-version changes to builtin
+sum do not silently change saved witnesses. Finite differences and floating calculations validate these
 cases, not a formal proof of every floating computation or saturated sigmoid.
 The stable sigmoid branch avoids overflowing exp for large negative logits,
 but floating saturation can still produce gates exactly 0 or 1.
