@@ -2,13 +2,14 @@ import argparse,json,sys
 from pathlib import Path
 from .exact import audit,jsonify
 from .demo import demo
+from .adjoint import derivative_audit,demo as adjoint_demo
 
 def main(argv=None):
-    p=argparse.ArgumentParser(description='Exact affine scan and small gated state-space audit');p.add_argument('mode',choices=('demo','audit'));p.add_argument('input',nargs='?');a=p.parse_args(argv)
+    p=argparse.ArgumentParser(description='Exact affine scan and small gated state-space audit');p.add_argument('mode',choices=('demo','audit','adjoint-demo','adjoint'));p.add_argument('input',nargs='?');a=p.parse_args(argv)
     try:
-        if a.mode=='demo':
+        if a.mode in ('demo','adjoint-demo'):
             if a.input:raise ValueError('demo takes no input')
-            r=demo()
+            r=demo() if a.mode=='demo' else adjoint_demo()
         else:
             if not a.input:raise ValueError('audit needs input JSON')
             raw=Path(a.input).read_bytes()
@@ -20,8 +21,9 @@ def main(argv=None):
                     d[k]=v
                 return d
             data=json.loads(raw,object_pairs_hook=pairs,parse_constant=lambda x:(_ for _ in ()).throw(ValueError('nonfinite JSON')))
-            if not isinstance(data,dict)or set(data)!={'pairs','initial'}:raise ValueError('input needs exactly pairs and initial')
-            r=audit(data['pairs'],data['initial'])
+            expected={'pairs','initial'} if a.mode=='audit' else {'pairs','initial','cotangents','direction','targets'}
+            if not isinstance(data,dict)or set(data)!=expected:raise ValueError('input keys mismatch')
+            r=audit(data['pairs'],data['initial']) if a.mode=='audit' else derivative_audit(**data)
         print(json.dumps(jsonify(r),sort_keys=True,indent=2));return 0
     except (ValueError,TypeError,OSError,UnicodeError)as e:print('error: '+str(e),file=sys.stderr);return 2
 
