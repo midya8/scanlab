@@ -4,6 +4,38 @@ A causal state-space laboratory in dependency-free Python: exact affine
 recurrence, a work-efficient associative prefix scan, fixed LTI convolution,
 and hand-derived reverse gradients for a small input-gated recurrence.
 
+## v0.3: coupled dense states
+
+![Coupled states, full matrix gradients and real dense work](assets/dense-audit.svg)
+
+The new exact full-matrix path mixes state coordinates rather than assuming
+diagonal dynamics. Noncommuting affine composition, singular reset steps,
+transposed next-matrix adjoints, outer-product matrix gradients and full
+parameter JVP/VJP certificates are all exposed. The transpose identity is
+`-440563/15120` on both sides. Omitting the reverse transpose gives exact gap
+`7831/2520`; reversing only matrix-product order changes the final state from
+`[9/2,187/36]` to `[-14/9,2/3]`. Controls can be invisible on special inputs.
+
+Small dense scans are not cheap diagonal scans. On six two-state steps,
+unit-pair dependency span is 4 versus sequential 6, but multiplications rise
+24 to 108 and additions 24 to 80. Instrumented exact arithmetic checks actual
+operation calls on 51 cases. Each dense composition costs cubic work in state
+width, and a whole matrix operation is only one span unit by convention.
+No timing, trained-model or hardware-speed claim.
+
+[Derivation, counters, strict contracts and six sources](DENSE.md). 96
+homogeneous-product length/width cases, 672 independently polynomial-checked
+parameter coordinates across 36 models, 24 full directional models, 216
+associativity cases and every DAG length through 32 support this extension.
+The dense path is bounded to length 32 and width 4; the earlier diagonal and
+diagonal-HVP paths remain unchanged. This is not a dense-HVP implementation.
+
+```bash
+python -m scanlab dense-demo
+python -m scanlab dense examples/dense-input.json
+bash examples/dense-demo.sh
+```
+
 ## v0.2: exact reverse scans and curvature
 
 ![Exact reverse scan, transposition and Hessian-vector certificates](https://raw.githubusercontent.com/midya8/scanlab/f30336e029fc595a9c2b6b2b60de44c85c48bc18/assets/adjoint-audit.svg)
@@ -75,13 +107,13 @@ bash examples/demo.sh
 python examples/render_demo.py --check
 ```
 
-46 tests (30 original plus 16 new) include 729 scalar affine associativity cases, 264 length/width cases
+63 tests (30 original, 16 exact-diagonal derivative and 17 dense-state) include 729 scalar affine associativity cases, 264 length/width cases
 against a closed-form expansion, 120 LTI models, full DAG scope/dependency/count
 checks, every length through 128 for work/span bounds, 123 independent gradient
 probes, 64 streaming partitions, strict input errors and both real failure
 controls. The 114-cell figure binds the complete report, including hidden
 intermediate factors, not only headline numbers. Five CI jobs check Python
-3.10-3.13 plus all four commands from an installed eight-module wheel outside checkout.
+3.10-3.13 plus all six commands from an installed nine-module wheel outside checkout.
 The new 68-cell SVG binds every shown value and embeds all five full scan
 DAGs; the original 114-cell figure is unchanged.
 
