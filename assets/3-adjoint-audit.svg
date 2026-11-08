@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1510" viewBox="0 0 1120 1510">
+<rect width="1120" height="1510" fill="#edf3f5"/><rect x="16" y="16" width="1088" height="1478" rx="18" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#25384b}.title{font-size:25px;font-weight:bold}.section{font-size:20px;font-weight:bold}.note{font-size:16px;fill:#59728a}.cell{font-size:17px;font-family:monospace}.head{font-size:16px;font-weight:bold}</style>
+<text x="40" y="56" class="title">ScanLab / reverse scans and exact derivative certificates</text>
+<text x="40" y="88" class="note">Supplied rational affine pairs. No dense Jacobian/Hessian. Serial Python, not GPU timing.</text>
+<text x="40" y="136" class="section">1  Reverse time is not enough: shift the decay by one step</text>
+<text x="40" y="167" class="note">h[t] = a[t] h[t-1] + b[t]; lambda[t] = q[t] + a[t+1] lambda[t+1]</text>
+<text x="40" y="195" class="note">Tangent: dh[t] = a[t] dh[t-1] + da[t] h[t-1] + db[t]</text>
+<text x="55" y="235" class="head">t</text>
+<text x="135" y="235" class="head">h[t]</text>
+<text x="335" y="235" class="head">dh[t]</text>
+<text x="550" y="235" class="head">q[t]</text>
+<text x="770" y="235" class="head">lambda[t]</text>
+<rect x="40" y="247" width="1040" height="32" fill="#edf3f5"/>
+<text x="55" y="270" class="cell">0</text>
+<text x="135" y="270" class="cell" data-key="linear/0/state">2</text>
+<text x="335" y="270" class="cell" data-key="linear/0/jvp">1/3</text>
+<text x="550" y="270" class="cell" data-key="linear/0/cotangent">1</text>
+<text x="770" y="270" class="cell" data-key="linear/0/adjoint">5/3</text>
+<rect x="40" y="281" width="1040" height="32" fill="#f8fafb"/>
+<text x="55" y="304" class="cell">1</text>
+<text x="135" y="304" class="cell" data-key="linear/1/state">-8/3</text>
+<text x="335" y="304" class="cell" data-key="linear/1/jvp">-7/9</text>
+<text x="550" y="304" class="cell" data-key="linear/1/cotangent">-2</text>
+<text x="770" y="304" class="cell" data-key="linear/1/adjoint">-2</text>
+<rect x="40" y="315" width="1040" height="32" fill="#edf3f5"/>
+<text x="55" y="338" class="cell">2</text>
+<text x="135" y="338" class="cell" data-key="linear/2/state">1/3</text>
+<text x="335" y="338" class="cell" data-key="linear/2/jvp">-25/9</text>
+<text x="550" y="338" class="cell" data-key="linear/2/cotangent">1/2</text>
+<text x="770" y="338" class="cell" data-key="linear/2/adjoint">7/2</text>
+<rect x="40" y="349" width="1040" height="32" fill="#f8fafb"/>
+<text x="55" y="372" class="cell">3</text>
+<text x="135" y="372" class="cell" data-key="linear/3/state">2/3</text>
+<text x="335" y="372" class="cell" data-key="linear/3/jvp">-179/36</text>
+<text x="550" y="372" class="cell" data-key="linear/3/cotangent">0</text>
+<text x="770" y="372" class="cell" data-key="linear/3/adjoint">3/2</text>
+<rect x="40" y="383" width="1040" height="32" fill="#edf3f5"/>
+<text x="55" y="406" class="cell">4</text>
+<text x="135" y="406" class="cell" data-key="linear/4/state">7/6</text>
+<text x="335" y="406" class="cell" data-key="linear/4/jvp">-767/240</text>
+<text x="550" y="406" class="cell" data-key="linear/4/cotangent">3/2</text>
+<text x="770" y="406" class="cell" data-key="linear/4/adjoint">2</text>
+<rect x="40" y="417" width="1040" height="32" fill="#f8fafb"/>
+<text x="55" y="440" class="cell">5</text>
+<text x="135" y="440" class="cell" data-key="linear/5/state">5/12</text>
+<text x="335" y="440" class="cell" data-key="linear/5/jvp">1207/480</text>
+<text x="550" y="440" class="cell" data-key="linear/5/cotangent">-1</text>
+<text x="770" y="440" class="cell" data-key="linear/5/adjoint">-1</text>
+<text x="40" y="500" class="section">2  Transposition test: q dot (J v) equals (J^T q) dot v</text>
+<text x="55" y="537" class="note">q dot (J v)</text>
+<text x="690" y="537" class="cell" data-key="transpose/cotangent_dot_jvp">-817/120</text>
+<text x="55" y="571" class="note">(J^T q) dot v</text>
+<text x="690" y="571" class="cell" data-key="transpose/vjp_dot_direction">-817/120</text>
+<text x="55" y="605" class="note">Exact gap</text>
+<text x="690" y="605" class="cell" data-key="transpose/exact_gap">0</text>
+<text x="55" y="647" class="note">Wrong a[t] instead of a[t+1]: dot</text>
+<text x="690" y="647" class="cell" data-key="wrong/vjp_dot_direction">139/360</text>
+<text x="55" y="681" class="note">Wrong-index transposition gap</text>
+<text x="690" y="681" class="cell" data-key="wrong/transpose_gap">-259/36</text>
+<text x="40" y="731" class="section">3  Squared loss: exact gradient and Hessian-vector product</text>
+<text x="40" y="760" class="note">L = sum (h[t] - target[t])^2 / 2. Targets and cotangents stay fixed.</text>
+<text x="55" y="802" class="head">t</text>
+<text x="140" y="802" class="head">dL/da[t]</text>
+<text x="355" y="802" class="head">dL/db[t]</text>
+<text x="575" y="802" class="head">(H v)_a[t]</text>
+<text x="815" y="802" class="head">(H v)_b[t]</text>
+<text x="55" y="837" class="cell">0</text>
+<text x="140" y="837" class="cell" data-key="loss/0/gradient/decay">6</text>
+<text x="355" y="837" class="cell" data-key="loss/0/gradient/write">3</text>
+<text x="575" y="837" class="cell" data-key="loss/0/hessian_vector/decay">89/36</text>
+<text x="815" y="837" class="cell" data-key="loss/0/hessian_vector/write">161/72</text>
+<text x="55" y="871" class="cell">1</text>
+<text x="140" y="871" class="cell" data-key="loss/1/gradient/decay">-6</text>
+<text x="355" y="871" class="cell" data-key="loss/1/gradient/write">-3</text>
+<text x="575" y="871" class="cell" data-key="loss/1/hessian_vector/decay">-41/12</text>
+<text x="815" y="871" class="cell" data-key="loss/1/hessian_vector/write">-29/24</text>
+<text x="55" y="905" class="cell">2</text>
+<text x="140" y="905" class="cell" data-key="loss/2/gradient/decay">31/18</text>
+<text x="355" y="905" class="cell" data-key="loss/2/gradient/write">-31/48</text>
+<text x="575" y="905" class="cell" data-key="loss/2/hessian_vector/decay">111721/2160</text>
+<text x="815" y="905" class="cell" data-key="loss/2/hessian_vector/write">-27659/1440</text>
+<text x="55" y="939" class="cell">3</text>
+<text x="140" y="939" class="cell" data-key="loss/3/gradient/decay">-95/288</text>
+<text x="355" y="939" class="cell" data-key="loss/3/gradient/write">-95/96</text>
+<text x="575" y="939" class="cell" data-key="loss/3/hessian_vector/decay">1789/34560</text>
+<text x="815" y="939" class="cell" data-key="loss/3/hessian_vector/write">-93211/11520</text>
+<text x="55" y="973" class="cell">4</text>
+<text x="140" y="973" class="cell" data-key="loss/4/gradient/decay">11/36</text>
+<text x="355" y="973" class="cell" data-key="loss/4/gradient/write">11/24</text>
+<text x="575" y="973" class="cell" data-key="loss/4/hessian_vector/decay">-2147/432</text>
+<text x="815" y="973" class="cell" data-key="loss/4/hessian_vector/write">-775/192</text>
+<text x="55" y="1007" class="cell">5</text>
+<text x="140" y="1007" class="cell" data-key="loss/5/gradient/decay">35/72</text>
+<text x="355" y="1007" class="cell" data-key="loss/5/gradient/write">5/12</text>
+<text x="575" y="1007" class="cell" data-key="loss/5/hessian_vector/decay">769/480</text>
+<text x="815" y="1007" class="cell" data-key="loss/5/hessian_vector/write">1207/480</text>
+<text x="55" y="1065" class="note">Initial-state gradient</text>
+<text x="690" y="1065" class="cell" data-key="loss/gradient/initial">3/2</text>
+<text x="55" y="1099" class="note">Initial-state H v</text>
+<text x="690" y="1099" class="cell" data-key="loss/hessian_vector/initial">305/144</text>
+<text x="55" y="1133" class="note">Loss L</text>
+<text x="690" y="1133" class="cell" data-key="loss/value">2473/288</text>
+<text x="55" y="1167" class="note">First directional derivative</text>
+<text x="690" y="1167" class="cell" data-key="loss/directional_first">83689/17280</text>
+<text x="55" y="1201" class="note">Second directional derivative v^T H v</text>
+<text x="690" y="1201" class="cell" data-key="loss/directional_second">20591177/414720</text>
+<text x="40" y="1250" class="section">4  Five recorded scan DAGs, not total derivative runtime</text>
+<text x="55" y="1285" class="head">Scan phase</text>
+<text x="475" y="1285" class="head">Pair compositions</text>
+<text x="760" y="1285" class="head">Compose + apply span</text>
+<text x="55" y="1316" class="note">forward</text>
+<text x="530" y="1316" class="cell" data-key="work/forward/pair_compositions">7</text>
+<text x="825" y="1316" class="cell" data-key="work/forward/scan_composition_plus_apply_span">4</text>
+<text x="55" y="1345" class="note">tangent</text>
+<text x="530" y="1345" class="cell" data-key="work/tangent/pair_compositions">7</text>
+<text x="825" y="1345" class="cell" data-key="work/tangent/scan_composition_plus_apply_span">4</text>
+<text x="55" y="1374" class="note">reverse</text>
+<text x="530" y="1374" class="cell" data-key="work/reverse/pair_compositions">7</text>
+<text x="825" y="1374" class="cell" data-key="work/reverse/scan_composition_plus_apply_span">4</text>
+<text x="55" y="1403" class="note">loss_reverse</text>
+<text x="530" y="1403" class="cell" data-key="work/loss_reverse/pair_compositions">7</text>
+<text x="825" y="1403" class="cell" data-key="work/loss_reverse/scan_composition_plus_apply_span">4</text>
+<text x="55" y="1432" class="note">hvp_reverse</text>
+<text x="530" y="1432" class="cell" data-key="work/hvp_reverse/pair_compositions">7</text>
+<text x="825" y="1432" class="cell" data-key="work/hvp_reverse/scan_composition_plus_apply_span">4</text>
+<text x="40" y="1480" class="note">Coefficients, elementwise derivatives, loss reductions and validation are outside these DAG counters.</text>
+<metadata id="full-witness" data-encoding="gzip-base64">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</metadata></svg>
