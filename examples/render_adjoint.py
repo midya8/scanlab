@@ -53,7 +53,12 @@ def render(report):
     for i,key in enumerate(('forward','tangent','reverse','loss_reverse','hvp_reverse')):
         y=1316+i*29;text(55,y,key);cell(530,y,'work/'+key+'/pair_compositions');cell(825,y,'work/'+key+'/scan_composition_plus_apply_span')
     text(40,1480,'Coefficients, elementwise derivatives, loss reductions and validation are outside these DAG counters.')
-    payload=json.dumps(jsonify(report),sort_keys=True,separators=(',',':')).encode();enc=base64.b64encode(gzip.compress(payload,mtime=0)).decode()
+    payload=json.dumps(jsonify(report),sort_keys=True,separators=(',',':')).encode()
+    compressed=gzip.compress(payload,mtime=0)
+    # RFC 1952 OS header byte: Python 3.11/3.12 may expose zlib's host OS.
+    # Canonicalize to 255 (unknown) without changing the deflate payload or CRC.
+    compressed=compressed[:9]+b'\xff'+compressed[10:]
+    enc=base64.b64encode(compressed).decode()
     lines.append('<metadata id="full-witness" data-encoding="gzip-base64">'+enc+'</metadata></svg>');return '\n'.join(lines)+'\n'
 
 if __name__=='__main__':Path(sys.argv[1]if len(sys.argv)>1 else'assets/adjoint-audit.svg').write_text(render(demo()))
