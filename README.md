@@ -4,7 +4,7 @@ A causal state-space laboratory in dependency-free Python: exact affine
 recurrence, a work-efficient associative prefix scan, fixed LTI convolution,
 and hand-derived reverse gradients for a small input-gated recurrence.
 
-![Exact algebra, actual work, floating failure and gradients](assets/scan-audit.svg)
+![Exact algebra, actual work, floating failure and gradients](https://raw.githubusercontent.com/midya8/scanlab/42355326cba179c5af1e8225192162918eac532c/assets/scan-audit.svg)
 
 ## The claims are deliberately separate
 
