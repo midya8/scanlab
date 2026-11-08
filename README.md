@@ -29,7 +29,7 @@ and hand-derived reverse gradients for a small input-gated recurrence.
   exposes every state, gate, output, parameter gradient, input gradient and
   initial-state gradient. All 123 derivative probes across nine shapes pass
   independent central differences. The displayed 16-probe fixture has maximum
-  error about `6.685e-12`. All 64 chunk partitions of a seven-token input
+  error about `8.419e-12`. All 64 chunk partitions of a seven-token input
   preserve the causal streaming outputs. A tested descent step reduces the
   fixture loss; no learned-task, language-model or generalization claim.
 
