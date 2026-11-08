@@ -6,7 +6,7 @@ and hand-derived reverse gradients for a small input-gated recurrence.
 
 ## v0.3: coupled dense states
 
-![Coupled states, full matrix gradients and real dense work](assets/dense-audit.svg)
+![Coupled states, full matrix gradients and real dense work](https://raw.githubusercontent.com/midya8/scanlab/1e6f1f4edc06d38b6babd203281c1efb836965b7/assets/dense-audit.svg)
 
 The new exact full-matrix path mixes state coordinates rather than assuming
 diagonal dynamics. Noncommuting affine composition, singular reset steps,
