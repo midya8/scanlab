@@ -67,7 +67,7 @@ A transposition identity can agree when both sides share a bug. Tests therefore 
 - 24 separate two-direction Hessian symmetry checks: `u^T H v = v^T H u`.
 - 51 models: lengths 0..16, widths 1, 2, 4. Each reverse adjoint is checked against an independently summed product of future decays, including negative and zero decays.
 - Empty, length-one and maximum 128-by-8 shapes; computed values above the input bit limit; malformed shapes/types/JSON; no input mutation or global RNG changes; saved report and CLI parity.
-- The SVG binds **68 numeric cells** to the report and embeds the entire witness. Changing an undisplayed trace changes its metadata. All v0.1 tests and saved demo/figure remain unchanged.
+- The SVG binds **68 numeric cells** to the report and embeds the entire witness. Changing an undisplayed trace changes its metadata. All v0.1 tests and saved demo/figure remain unchanged. The new gzip metadata uses mtime zero and an explicit OS-header byte of 255, avoiding the Python 3.11/3.12 zlib host-byte difference without changing deflate data or weakening exact SVG assertions.
 
 ## Work and span boundaries
 
