@@ -1,0 +1,1664 @@
+{
+  "audit": {
+    "contract": "exact rational supplied-pair derivatives, fixed cotangents and targets; serial Python, not general AD, no dense Jacobian/Hessian, no runtime speed claim",
+    "cotangents": [
+      [
+        "1"
+      ],
+      [
+        "-2"
+      ],
+      [
+        "1/2"
+      ],
+      [
+        "0"
+      ],
+      [
+        "3/2"
+      ],
+      [
+        "-1"
+      ]
+    ],
+    "direction": {
+      "initial": [
+        "-2/3"
+      ],
+      "pairs": [
+        {
+          "decay": [
+            "1/3"
+          ],
+          "write": [
+            "0"
+          ]
+        },
+        {
+          "decay": [
+            "-1/2"
+          ],
+          "write": [
+            "1/3"
+          ]
+        },
+        {
+          "decay": [
+            "2/3"
+          ],
+          "write": [
+            "-1"
+          ]
+        },
+        {
+          "decay": [
+            "1/4"
+          ],
+          "write": [
+            "1/2"
+          ]
+        },
+        {
+          "decay": [
+            "-1/5"
+          ],
+          "write": [
+            "2/3"
+          ]
+        },
+        {
+          "decay": [
+            "1"
+          ],
+          "write": [
+            "-1/4"
+          ]
+        }
+      ]
+    },
+    "squared_loss": {
+      "directional_first": "83689/17280",
+      "directional_second": "20591177/414720",
+      "gradient": {
+        "initial": [
+          "3/2"
+        ],
+        "pairs": [
+          {
+            "decay": [
+              "6"
+            ],
+            "write": [
+              "3"
+            ]
+          },
+          {
+            "decay": [
+              "-6"
+            ],
+            "write": [
+              "-3"
+            ]
+          },
+          {
+            "decay": [
+              "31/18"
+            ],
+            "write": [
+              "-31/48"
+            ]
+          },
+          {
+            "decay": [
+              "-95/288"
+            ],
+            "write": [
+              "-95/96"
+            ]
+          },
+          {
+            "decay": [
+              "11/36"
+            ],
+            "write": [
+              "11/24"
+            ]
+          },
+          {
+            "decay": [
+              "35/72"
+            ],
+            "write": [
+              "5/12"
+            ]
+          }
+        ]
+      },
+      "hessian_vector": {
+        "initial": [
+          "305/144"
+        ],
+        "pairs": [
+          {
+            "decay": [
+              "89/36"
+            ],
+            "write": [
+              "161/72"
+            ]
+          },
+          {
+            "decay": [
+              "-41/12"
+            ],
+            "write": [
+              "-29/24"
+            ]
+          },
+          {
+            "decay": [
+              "111721/2160"
+            ],
+            "write": [
+              "-27659/1440"
+            ]
+          },
+          {
+            "decay": [
+              "1789/34560"
+            ],
+            "write": [
+              "-93211/11520"
+            ]
+          },
+          {
+            "decay": [
+              "-2147/432"
+            ],
+            "write": [
+              "-775/192"
+            ]
+          },
+          {
+            "decay": [
+              "769/480"
+            ],
+            "write": [
+              "1207/480"
+            ]
+          }
+        ]
+      },
+      "residual": [
+        [
+          "2"
+        ],
+        [
+          "-3"
+        ],
+        [
+          "4/3"
+        ],
+        [
+          "-4/3"
+        ],
+        [
+          "2/3"
+        ],
+        [
+          "5/12"
+        ]
+      ],
+      "targets": [
+        [
+          "0"
+        ],
+        [
+          "1/3"
+        ],
+        [
+          "-1"
+        ],
+        [
+          "2"
+        ],
+        [
+          "1/2"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "value": "2473/288"
+    },
+    "state_jvp": [
+      [
+        "1/3"
+      ],
+      [
+        "-7/9"
+      ],
+      [
+        "-25/9"
+      ],
+      [
+        "-179/36"
+      ],
+      [
+        "-767/240"
+      ],
+      [
+        "1207/480"
+      ]
+    ],
+    "states": [
+      [
+        "2"
+      ],
+      [
+        "-8/3"
+      ],
+      [
+        "1/3"
+      ],
+      [
+        "2/3"
+      ],
+      [
+        "7/6"
+      ],
+      [
+        "5/12"
+      ]
+    ],
+    "transpose": {
+      "cotangent_dot_jvp": "-817/120",
+      "exact_gap": "0",
+      "vjp_dot_direction": "-817/120"
+    },
+    "vjp": {
+      "initial": [
+        "5/6"
+      ],
+      "pairs": [
+        {
+          "decay": [
+            "10/3"
+          ],
+          "write": [
+            "5/3"
+          ]
+        },
+        {
+          "decay": [
+            "-4"
+          ],
+          "write": [
+            "-2"
+          ]
+        },
+        {
+          "decay": [
+            "-28/3"
+          ],
+          "write": [
+            "7/2"
+          ]
+        },
+        {
+          "decay": [
+            "1/2"
+          ],
+          "write": [
+            "3/2"
+          ]
+        },
+        {
+          "decay": [
+            "4/3"
+          ],
+          "write": [
+            "2"
+          ]
+        },
+        {
+          "decay": [
+            "-7/6"
+          ],
+          "write": [
+            "-1"
+          ]
+        }
+      ]
+    },
+    "witness": {
+      "forward": {
+        "composition_trace": [
+          {
+            "depth": 1,
+            "end": 2,
+            "id": "c0",
+            "left": "i0",
+            "pair": [
+              [
+                "-1/6"
+              ],
+              [
+                "-7/3"
+              ]
+            ],
+            "right": "i1",
+            "start": 0
+          },
+          {
+            "depth": 1,
+            "end": 4,
+            "id": "c1",
+            "left": "i2",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "2/3"
+              ]
+            ],
+            "right": "i3",
+            "start": 2
+          },
+          {
+            "depth": 1,
+            "end": 6,
+            "id": "c2",
+            "left": "i4",
+            "pair": [
+              [
+                "-3/8"
+              ],
+              [
+                "2/3"
+              ]
+            ],
+            "right": "i5",
+            "start": 4
+          },
+          {
+            "depth": 2,
+            "end": 4,
+            "id": "c3",
+            "left": "c0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "2/3"
+              ]
+            ],
+            "right": "c1",
+            "start": 0
+          },
+          {
+            "depth": 3,
+            "end": 6,
+            "id": "c4",
+            "left": "c3",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "5/12"
+              ]
+            ],
+            "right": "c2",
+            "start": 0
+          },
+          {
+            "depth": 2,
+            "end": 3,
+            "id": "c5",
+            "left": "c0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "1/3"
+              ]
+            ],
+            "right": "i2",
+            "start": 0
+          },
+          {
+            "depth": 3,
+            "end": 5,
+            "id": "c6",
+            "left": "c3",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "7/6"
+              ]
+            ],
+            "right": "i4",
+            "start": 0
+          }
+        ],
+        "contract": "scalar arithmetic counts on supplied pairs; serial Python, unit composition-DAG span, not timings or bit complexity",
+        "counts": {
+          "pair_compositions": 7,
+          "scan_composition_plus_apply_span": 4,
+          "scan_scalar_additions": 13,
+          "scan_scalar_multiplications": 20,
+          "sequential_scalar_additions": 6,
+          "sequential_scalar_multiplications": 6,
+          "sequential_update_span": 6,
+          "state_width": 1,
+          "tokens": 6
+        },
+        "prefix_pairs": [
+          {
+            "composition_depth": 0,
+            "decay": [
+              "1/2"
+            ],
+            "node": "i0",
+            "through": 0,
+            "write": [
+              "1"
+            ]
+          },
+          {
+            "composition_depth": 1,
+            "decay": [
+              "-1/6"
+            ],
+            "node": "c0",
+            "through": 1,
+            "write": [
+              "-7/3"
+            ]
+          },
+          {
+            "composition_depth": 2,
+            "decay": [
+              "0"
+            ],
+            "node": "c5",
+            "through": 2,
+            "write": [
+              "1/3"
+            ]
+          },
+          {
+            "composition_depth": 2,
+            "decay": [
+              "0"
+            ],
+            "node": "c3",
+            "through": 3,
+            "write": [
+              "2/3"
+            ]
+          },
+          {
+            "composition_depth": 3,
+            "decay": [
+              "0"
+            ],
+            "node": "c6",
+            "through": 4,
+            "write": [
+              "7/6"
+            ]
+          },
+          {
+            "composition_depth": 3,
+            "decay": [
+              "0"
+            ],
+            "node": "c4",
+            "through": 5,
+            "write": [
+              "5/12"
+            ]
+          }
+        ],
+        "states": [
+          [
+            "2"
+          ],
+          [
+            "-8/3"
+          ],
+          [
+            "1/3"
+          ],
+          [
+            "2/3"
+          ],
+          [
+            "7/6"
+          ],
+          [
+            "5/12"
+          ]
+        ]
+      },
+      "hvp_reverse": {
+        "composition_trace": [
+          {
+            "depth": 1,
+            "end": 2,
+            "id": "c0",
+            "left": "i0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-775/192"
+              ]
+            ],
+            "right": "i1",
+            "start": 0
+          },
+          {
+            "depth": 1,
+            "end": 4,
+            "id": "c1",
+            "left": "i2",
+            "pair": [
+              [
+                "3/2"
+              ],
+              [
+                "-75761/5760"
+              ]
+            ],
+            "right": "i3",
+            "start": 2
+          },
+          {
+            "depth": 1,
+            "end": 6,
+            "id": "c2",
+            "left": "i4",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "161/72"
+              ]
+            ],
+            "right": "i5",
+            "start": 4
+          },
+          {
+            "depth": 2,
+            "end": 4,
+            "id": "c3",
+            "left": "c0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-27659/1440"
+              ]
+            ],
+            "right": "c1",
+            "start": 0
+          },
+          {
+            "depth": 3,
+            "end": 6,
+            "id": "c4",
+            "left": "c3",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "161/72"
+              ]
+            ],
+            "right": "c2",
+            "start": 0
+          },
+          {
+            "depth": 2,
+            "end": 3,
+            "id": "c5",
+            "left": "c0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-93211/11520"
+              ]
+            ],
+            "right": "i2",
+            "start": 0
+          },
+          {
+            "depth": 3,
+            "end": 5,
+            "id": "c6",
+            "left": "c3",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-29/24"
+              ]
+            ],
+            "right": "i4",
+            "start": 0
+          }
+        ],
+        "contract": "scalar arithmetic counts on supplied pairs; serial Python, unit composition-DAG span, not timings or bit complexity",
+        "counts": {
+          "pair_compositions": 7,
+          "scan_composition_plus_apply_span": 4,
+          "scan_scalar_additions": 13,
+          "scan_scalar_multiplications": 20,
+          "sequential_scalar_additions": 6,
+          "sequential_scalar_multiplications": 6,
+          "sequential_update_span": 6,
+          "state_width": 1,
+          "tokens": 6
+        },
+        "prefix_pairs": [
+          {
+            "composition_depth": 0,
+            "decay": [
+              "0"
+            ],
+            "node": "i0",
+            "through": 0,
+            "write": [
+              "1207/480"
+            ]
+          },
+          {
+            "composition_depth": 1,
+            "decay": [
+              "0"
+            ],
+            "node": "c0",
+            "through": 1,
+            "write": [
+              "-775/192"
+            ]
+          },
+          {
+            "composition_depth": 2,
+            "decay": [
+              "0"
+            ],
+            "node": "c5",
+            "through": 2,
+            "write": [
+              "-93211/11520"
+            ]
+          },
+          {
+            "composition_depth": 2,
+            "decay": [
+              "0"
+            ],
+            "node": "c3",
+            "through": 3,
+            "write": [
+              "-27659/1440"
+            ]
+          },
+          {
+            "composition_depth": 3,
+            "decay": [
+              "0"
+            ],
+            "node": "c6",
+            "through": 4,
+            "write": [
+              "-29/24"
+            ]
+          },
+          {
+            "composition_depth": 3,
+            "decay": [
+              "0"
+            ],
+            "node": "c4",
+            "through": 5,
+            "write": [
+              "161/72"
+            ]
+          }
+        ],
+        "states": [
+          [
+            "1207/480"
+          ],
+          [
+            "-775/192"
+          ],
+          [
+            "-93211/11520"
+          ],
+          [
+            "-27659/1440"
+          ],
+          [
+            "-29/24"
+          ],
+          [
+            "161/72"
+          ]
+        ]
+      },
+      "hvp_reverse_forcing": [
+        [
+          "11/6"
+        ],
+        [
+          "-29/24"
+        ],
+        [
+          "-3485/1152"
+        ],
+        [
+          "-1823/360"
+        ],
+        [
+          "-667/240"
+        ],
+        [
+          "1207/480"
+        ]
+      ],
+      "loss_adjoint_jvp": [
+        [
+          "161/72"
+        ],
+        [
+          "-29/24"
+        ],
+        [
+          "-27659/1440"
+        ],
+        [
+          "-93211/11520"
+        ],
+        [
+          "-775/192"
+        ],
+        [
+          "1207/480"
+        ]
+      ],
+      "loss_adjoints": [
+        [
+          "3"
+        ],
+        [
+          "-3"
+        ],
+        [
+          "-31/48"
+        ],
+        [
+          "-95/96"
+        ],
+        [
+          "11/24"
+        ],
+        [
+          "5/12"
+        ]
+      ],
+      "loss_reverse": {
+        "composition_trace": [
+          {
+            "depth": 1,
+            "end": 2,
+            "id": "c0",
+            "left": "i0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "11/24"
+              ]
+            ],
+            "right": "i1",
+            "start": 0
+          },
+          {
+            "depth": 1,
+            "end": 4,
+            "id": "c1",
+            "left": "i2",
+            "pair": [
+              [
+                "3/2"
+              ],
+              [
+                "-4/3"
+              ]
+            ],
+            "right": "i3",
+            "start": 2
+          },
+          {
+            "depth": 1,
+            "end": 6,
+            "id": "c2",
+            "left": "i4",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "3"
+              ]
+            ],
+            "right": "i5",
+            "start": 4
+          },
+          {
+            "depth": 2,
+            "end": 4,
+            "id": "c3",
+            "left": "c0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-31/48"
+              ]
+            ],
+            "right": "c1",
+            "start": 0
+          },
+          {
+            "depth": 3,
+            "end": 6,
+            "id": "c4",
+            "left": "c3",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "3"
+              ]
+            ],
+            "right": "c2",
+            "start": 0
+          },
+          {
+            "depth": 2,
+            "end": 3,
+            "id": "c5",
+            "left": "c0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-95/96"
+              ]
+            ],
+            "right": "i2",
+            "start": 0
+          },
+          {
+            "depth": 3,
+            "end": 5,
+            "id": "c6",
+            "left": "c3",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-3"
+              ]
+            ],
+            "right": "i4",
+            "start": 0
+          }
+        ],
+        "contract": "scalar arithmetic counts on supplied pairs; serial Python, unit composition-DAG span, not timings or bit complexity",
+        "counts": {
+          "pair_compositions": 7,
+          "scan_composition_plus_apply_span": 4,
+          "scan_scalar_additions": 13,
+          "scan_scalar_multiplications": 20,
+          "sequential_scalar_additions": 6,
+          "sequential_scalar_multiplications": 6,
+          "sequential_update_span": 6,
+          "state_width": 1,
+          "tokens": 6
+        },
+        "prefix_pairs": [
+          {
+            "composition_depth": 0,
+            "decay": [
+              "0"
+            ],
+            "node": "i0",
+            "through": 0,
+            "write": [
+              "5/12"
+            ]
+          },
+          {
+            "composition_depth": 1,
+            "decay": [
+              "0"
+            ],
+            "node": "c0",
+            "through": 1,
+            "write": [
+              "11/24"
+            ]
+          },
+          {
+            "composition_depth": 2,
+            "decay": [
+              "0"
+            ],
+            "node": "c5",
+            "through": 2,
+            "write": [
+              "-95/96"
+            ]
+          },
+          {
+            "composition_depth": 2,
+            "decay": [
+              "0"
+            ],
+            "node": "c3",
+            "through": 3,
+            "write": [
+              "-31/48"
+            ]
+          },
+          {
+            "composition_depth": 3,
+            "decay": [
+              "0"
+            ],
+            "node": "c6",
+            "through": 4,
+            "write": [
+              "-3"
+            ]
+          },
+          {
+            "composition_depth": 3,
+            "decay": [
+              "0"
+            ],
+            "node": "c4",
+            "through": 5,
+            "write": [
+              "3"
+            ]
+          }
+        ],
+        "states": [
+          [
+            "5/12"
+          ],
+          [
+            "11/24"
+          ],
+          [
+            "-95/96"
+          ],
+          [
+            "-31/48"
+          ],
+          [
+            "-3"
+          ],
+          [
+            "3"
+          ]
+        ]
+      },
+      "reverse": {
+        "composition_trace": [
+          {
+            "depth": 1,
+            "end": 2,
+            "id": "c0",
+            "left": "i0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "2"
+              ]
+            ],
+            "right": "i1",
+            "start": 0
+          },
+          {
+            "depth": 1,
+            "end": 4,
+            "id": "c1",
+            "left": "i2",
+            "pair": [
+              [
+                "3/2"
+              ],
+              [
+                "1/2"
+              ]
+            ],
+            "right": "i3",
+            "start": 2
+          },
+          {
+            "depth": 1,
+            "end": 6,
+            "id": "c2",
+            "left": "i4",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "5/3"
+              ]
+            ],
+            "right": "i5",
+            "start": 4
+          },
+          {
+            "depth": 2,
+            "end": 4,
+            "id": "c3",
+            "left": "c0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "7/2"
+              ]
+            ],
+            "right": "c1",
+            "start": 0
+          },
+          {
+            "depth": 3,
+            "end": 6,
+            "id": "c4",
+            "left": "c3",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "5/3"
+              ]
+            ],
+            "right": "c2",
+            "start": 0
+          },
+          {
+            "depth": 2,
+            "end": 3,
+            "id": "c5",
+            "left": "c0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "3/2"
+              ]
+            ],
+            "right": "i2",
+            "start": 0
+          },
+          {
+            "depth": 3,
+            "end": 5,
+            "id": "c6",
+            "left": "c3",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-2"
+              ]
+            ],
+            "right": "i4",
+            "start": 0
+          }
+        ],
+        "contract": "scalar arithmetic counts on supplied pairs; serial Python, unit composition-DAG span, not timings or bit complexity",
+        "counts": {
+          "pair_compositions": 7,
+          "scan_composition_plus_apply_span": 4,
+          "scan_scalar_additions": 13,
+          "scan_scalar_multiplications": 20,
+          "sequential_scalar_additions": 6,
+          "sequential_scalar_multiplications": 6,
+          "sequential_update_span": 6,
+          "state_width": 1,
+          "tokens": 6
+        },
+        "prefix_pairs": [
+          {
+            "composition_depth": 0,
+            "decay": [
+              "0"
+            ],
+            "node": "i0",
+            "through": 0,
+            "write": [
+              "-1"
+            ]
+          },
+          {
+            "composition_depth": 1,
+            "decay": [
+              "0"
+            ],
+            "node": "c0",
+            "through": 1,
+            "write": [
+              "2"
+            ]
+          },
+          {
+            "composition_depth": 2,
+            "decay": [
+              "0"
+            ],
+            "node": "c5",
+            "through": 2,
+            "write": [
+              "3/2"
+            ]
+          },
+          {
+            "composition_depth": 2,
+            "decay": [
+              "0"
+            ],
+            "node": "c3",
+            "through": 3,
+            "write": [
+              "7/2"
+            ]
+          },
+          {
+            "composition_depth": 3,
+            "decay": [
+              "0"
+            ],
+            "node": "c6",
+            "through": 4,
+            "write": [
+              "-2"
+            ]
+          },
+          {
+            "composition_depth": 3,
+            "decay": [
+              "0"
+            ],
+            "node": "c4",
+            "through": 5,
+            "write": [
+              "5/3"
+            ]
+          }
+        ],
+        "states": [
+          [
+            "-1"
+          ],
+          [
+            "2"
+          ],
+          [
+            "3/2"
+          ],
+          [
+            "7/2"
+          ],
+          [
+            "-2"
+          ],
+          [
+            "5/3"
+          ]
+        ]
+      },
+      "reverse_index_map": [
+        {
+          "original_time": 5,
+          "propagates_from_time": null,
+          "scan_index": 0
+        },
+        {
+          "original_time": 4,
+          "propagates_from_time": 5,
+          "scan_index": 1
+        },
+        {
+          "original_time": 3,
+          "propagates_from_time": 4,
+          "scan_index": 2
+        },
+        {
+          "original_time": 2,
+          "propagates_from_time": 3,
+          "scan_index": 3
+        },
+        {
+          "original_time": 1,
+          "propagates_from_time": 2,
+          "scan_index": 4
+        },
+        {
+          "original_time": 0,
+          "propagates_from_time": 1,
+          "scan_index": 5
+        }
+      ],
+      "tangent": {
+        "composition_trace": [
+          {
+            "depth": 1,
+            "end": 2,
+            "id": "c0",
+            "left": "i0",
+            "pair": [
+              [
+                "-1/6"
+              ],
+              [
+                "-8/9"
+              ]
+            ],
+            "right": "i1",
+            "start": 0
+          },
+          {
+            "depth": 1,
+            "end": 4,
+            "id": "c1",
+            "left": "i2",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-179/36"
+              ]
+            ],
+            "right": "i3",
+            "start": 2
+          },
+          {
+            "depth": 1,
+            "end": 6,
+            "id": "c2",
+            "left": "i4",
+            "pair": [
+              [
+                "-3/8"
+              ],
+              [
+                "13/20"
+              ]
+            ],
+            "right": "i5",
+            "start": 4
+          },
+          {
+            "depth": 2,
+            "end": 4,
+            "id": "c3",
+            "left": "c0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-179/36"
+              ]
+            ],
+            "right": "c1",
+            "start": 0
+          },
+          {
+            "depth": 3,
+            "end": 6,
+            "id": "c4",
+            "left": "c3",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "1207/480"
+              ]
+            ],
+            "right": "c2",
+            "start": 0
+          },
+          {
+            "depth": 2,
+            "end": 3,
+            "id": "c5",
+            "left": "c0",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-25/9"
+              ]
+            ],
+            "right": "i2",
+            "start": 0
+          },
+          {
+            "depth": 3,
+            "end": 5,
+            "id": "c6",
+            "left": "c3",
+            "pair": [
+              [
+                "0"
+              ],
+              [
+                "-767/240"
+              ]
+            ],
+            "right": "i4",
+            "start": 0
+          }
+        ],
+        "contract": "scalar arithmetic counts on supplied pairs; serial Python, unit composition-DAG span, not timings or bit complexity",
+        "counts": {
+          "pair_compositions": 7,
+          "scan_composition_plus_apply_span": 4,
+          "scan_scalar_additions": 13,
+          "scan_scalar_multiplications": 20,
+          "sequential_scalar_additions": 6,
+          "sequential_scalar_multiplications": 6,
+          "sequential_update_span": 6,
+          "state_width": 1,
+          "tokens": 6
+        },
+        "prefix_pairs": [
+          {
+            "composition_depth": 0,
+            "decay": [
+              "1/2"
+            ],
+            "node": "i0",
+            "through": 0,
+            "write": [
+              "2/3"
+            ]
+          },
+          {
+            "composition_depth": 1,
+            "decay": [
+              "-1/6"
+            ],
+            "node": "c0",
+            "through": 1,
+            "write": [
+              "-8/9"
+            ]
+          },
+          {
+            "composition_depth": 2,
+            "decay": [
+              "0"
+            ],
+            "node": "c5",
+            "through": 2,
+            "write": [
+              "-25/9"
+            ]
+          },
+          {
+            "composition_depth": 2,
+            "decay": [
+              "0"
+            ],
+            "node": "c3",
+            "through": 3,
+            "write": [
+              "-179/36"
+            ]
+          },
+          {
+            "composition_depth": 3,
+            "decay": [
+              "0"
+            ],
+            "node": "c6",
+            "through": 4,
+            "write": [
+              "-767/240"
+            ]
+          },
+          {
+            "composition_depth": 3,
+            "decay": [
+              "0"
+            ],
+            "node": "c4",
+            "through": 5,
+            "write": [
+              "1207/480"
+            ]
+          }
+        ],
+        "states": [
+          [
+            "1/3"
+          ],
+          [
+            "-7/9"
+          ],
+          [
+            "-25/9"
+          ],
+          [
+            "-179/36"
+          ],
+          [
+            "-767/240"
+          ],
+          [
+            "1207/480"
+          ]
+        ]
+      }
+    },
+    "wrong_index_control": {
+      "detected_for_this_input": true,
+      "transpose_gap": "-259/36",
+      "vjp_dot_direction": "139/360"
+    }
+  },
+  "input": {
+    "cotangents": [
+      [
+        "1"
+      ],
+      [
+        "-2"
+      ],
+      [
+        "1/2"
+      ],
+      [
+        "0"
+      ],
+      [
+        "3/2"
+      ],
+      [
+        "-1"
+      ]
+    ],
+    "direction": {
+      "initial": [
+        "-2/3"
+      ],
+      "pairs": [
+        {
+          "decay": [
+            "1/3"
+          ],
+          "write": [
+            "0"
+          ]
+        },
+        {
+          "decay": [
+            "-1/2"
+          ],
+          "write": [
+            "1/3"
+          ]
+        },
+        {
+          "decay": [
+            "2/3"
+          ],
+          "write": [
+            "-1"
+          ]
+        },
+        {
+          "decay": [
+            "1/4"
+          ],
+          "write": [
+            "1/2"
+          ]
+        },
+        {
+          "decay": [
+            "-1/5"
+          ],
+          "write": [
+            "2/3"
+          ]
+        },
+        {
+          "decay": [
+            "1"
+          ],
+          "write": [
+            "-1/4"
+          ]
+        }
+      ]
+    },
+    "initial": [
+      "2"
+    ],
+    "pairs": [
+      {
+        "decay": [
+          "1/2"
+        ],
+        "write": [
+          "1"
+        ]
+      },
+      {
+        "decay": [
+          "-1/3"
+        ],
+        "write": [
+          "-2"
+        ]
+      },
+      {
+        "decay": [
+          "0"
+        ],
+        "write": [
+          "1/3"
+        ]
+      },
+      {
+        "decay": [
+          "2"
+        ],
+        "write": [
+          "0"
+        ]
+      },
+      {
+        "decay": [
+          "3/4"
+        ],
+        "write": [
+          "2/3"
+        ]
+      },
+      {
+        "decay": [
+          "-1/2"
+        ],
+        "write": [
+          "1"
+        ]
+      }
+    ],
+    "targets": [
+      [
+        "0"
+      ],
+      [
+        "1/3"
+      ],
+      [
+        "-1"
+      ],
+      [
+        "2"
+      ],
+      [
+        "1/2"
+      ],
+      [
+        "0"
+      ]
+    ]
+  }
+}
