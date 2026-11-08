@@ -1375,33 +1375,33 @@
     "gradient_check": {
       "count": 16,
       "epsilon": 1e-06,
-      "max_absolute_error": 6.684514053389989e-12,
+      "max_absolute_error": 8.419237529366796e-12,
       "rows": [
         {
-          "absolute_error": 3.343290921886677e-12,
+          "absolute_error": 1.6085674459098698e-12,
           "analytic": -0.011893516225573851,
-          "central_difference": -0.01189351622223056,
+          "central_difference": -0.011893516223965284,
           "field": "theta",
           "index": 0
         },
         {
-          "absolute_error": 2.2516823475204895e-12,
+          "absolute_error": 1.2177646044331247e-12,
           "analytic": 0.0066598166795529936,
-          "central_difference": 0.006659816677301311,
+          "central_difference": 0.006659816680770758,
           "field": "theta",
           "index": 1
         },
         {
-          "absolute_error": 6.351230630828597e-12,
+          "absolute_error": 2.881783678874983e-12,
           "analytic": -0.0001968975682823615,
-          "central_difference": -0.00019689757463359214,
+          "central_difference": -0.0001968975711641452,
           "field": "u",
           "index": 0
         },
         {
-          "absolute_error": 1.2149304999542476e-12,
+          "absolute_error": 2.9496539759310547e-12,
           "analytic": -0.001088682705965085,
-          "central_difference": -0.0010886827047501546,
+          "central_difference": -0.0010886827030154311,
           "field": "u",
           "index": 1
         },
@@ -1413,9 +1413,9 @@
           "index": 0
         },
         {
-          "absolute_error": 6.684514053389989e-12,
+          "absolute_error": 8.419237529366796e-12,
           "analytic": 0.058090357933892195,
-          "central_difference": 0.05809035794057671,
+          "central_difference": 0.05809035794231143,
           "field": "B",
           "index": 1
         },
@@ -1434,16 +1434,16 @@
           "index": 1
         },
         {
-          "absolute_error": 2.3982205110684163e-12,
+          "absolute_error": 5.8676674630220305e-12,
           "analytic": 0.1370211650641691,
-          "central_difference": 0.13702116506177087,
+          "central_difference": 0.13702116505830142,
           "field": "D",
           "index": 0
         },
         {
-          "absolute_error": 1.7004245234097937e-12,
+          "absolute_error": 5.169871475363408e-12,
           "analytic": 0.037070266622022834,
-          "central_difference": 0.03707026662372326,
+          "central_difference": 0.037070266627192705,
           "field": "input",
           "index": 0
         },
