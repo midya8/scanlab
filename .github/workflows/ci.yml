@@ -17,6 +17,7 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: bash examples/demo.sh
       - run: bash examples/adjoint-demo.sh
+      - run: bash examples/dense-demo.sh
   package:
     runs-on: ubuntu-latest
     steps:
@@ -40,3 +41,10 @@ jobs:
           (cd /tmp && PYTHONPATH=/tmp/installed python -m scanlab adjoint "$GITHUB_WORKSPACE/examples/adjoint-input.json") >/tmp/wheel-adjoint.json
           cmp /tmp/source-adjoint.json /tmp/wheel-adjoint.json
           (cd /tmp && PYTHONPATH=/tmp/installed python -c "import scanlab, scanlab.__main__, scanlab.demo, scanlab.exact, scanlab.floating, scanlab.gated, scanlab.lti, scanlab.adjoint; print('8 modules imported')")
+          python -m scanlab dense-demo >/tmp/source-dense-demo.json
+          (cd /tmp && PYTHONPATH=/tmp/installed python -m scanlab dense-demo) >/tmp/wheel-dense-demo.json
+          cmp /tmp/source-dense-demo.json /tmp/wheel-dense-demo.json
+          python -m scanlab dense examples/dense-input.json >/tmp/source-dense.json
+          (cd /tmp && PYTHONPATH=/tmp/installed python -m scanlab dense "$GITHUB_WORKSPACE/examples/dense-input.json") >/tmp/wheel-dense.json
+          cmp /tmp/source-dense.json /tmp/wheel-dense.json
+          (cd /tmp && PYTHONPATH=/tmp/installed python -c "import scanlab.dense; print('9 modules imported across package checks')")
