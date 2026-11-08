@@ -6,7 +6,7 @@ and hand-derived reverse gradients for a small input-gated recurrence.
 
 ## v0.2: exact reverse scans and curvature
 
-![Exact reverse scan, transposition and Hessian-vector certificates](assets/adjoint-audit.svg)
+![Exact reverse scan, transposition and Hessian-vector certificates](https://raw.githubusercontent.com/midya8/scanlab/f30336e029fc595a9c2b6b2b60de44c85c48bc18/assets/adjoint-audit.svg)
 
 The new exact path differentiates the supplied diagonal affine pairs, separately
 from the float gated model below. Shifted-decay reverse scans return every
