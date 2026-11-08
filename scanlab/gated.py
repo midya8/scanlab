@@ -36,7 +36,7 @@ def _forward(p,xs,h):
     trace=[];ys=[]
     for x in xs:
         a=[sigmoid(t+u*x)for t,u in zip(p['theta'],p['u'])];prev=h[:]
-        h=[z*s+b*x for z,s,b in zip(a,h,p['B'])];y=sum(c*s for c,s in zip(p['C'],h))+p['D']*x
+        h=[z*s+b*x for z,s,b in zip(a,h,p['B'])];y=math.fsum(c*s for c,s in zip(p['C'],h))+p['D']*x
         if not all(math.isfinite(z) for z in h+[y]):raise ValueError('nonfinite computed output')
         trace.append({'input':x,'decay':a,'previous_state':prev,'state':h[:],'output':y});ys.append(y)
     return {'outputs':ys,'final_state':h,'trace':trace}
@@ -53,7 +53,7 @@ def loss_and_grad(params,inputs,initial,targets):
             z=carry[j]+dy*p['C'][j];a=row['decay'][j];dg=z*row['previous_state'][j]*a*(1-a)
             grad['theta'][j]+=dg;grad['u'][j]+=dg*x;grad['B'][j]+=z*x;grad['C'][j]+=dy*row['state'][j]
             dx[i]+=z*p['B'][j]+dg*p['u'][j];carry[j]=z*a
-    loss=sum((y-t)**2 for y,t in zip(r['outputs'],targets))/(2*n)
+    loss=math.fsum((y-t)**2 for y,t in zip(r['outputs'],targets))/(2*n)
     return {'loss':loss,'parameter_gradients':grad,'input_gradients':dx,'initial_gradients':carry,'forward':r}
 
 
@@ -71,7 +71,7 @@ def finite_difference_audit(params,inputs,initial,targets,epsilon=1e-6):
     import copy
     if isinstance(epsilon,bool)or not isinstance(epsilon,(int,float))or not 0<epsilon<=.001:raise ValueError('epsilon must be in(0,.001]')
     p,xs,h=validate(params,inputs,initial);result=loss_and_grad(p,xs,h,targets);n=len(xs)
-    def loss(pp,xx,hh):return sum((y-number(t))**2 for y,t in zip(forward(pp,xx,hh)['outputs'],targets))/(2*n)
+    def loss(pp,xx,hh):return math.fsum((y-number(t))**2 for y,t in zip(forward(pp,xx,hh)['outputs'],targets))/(2*n)
     rows=[]
     for k in ('theta','u','B','C','D','input','initial'):
         size=1 if k=='D' else len(xs)if k=='input'else len(h)
