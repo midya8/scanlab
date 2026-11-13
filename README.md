@@ -1,14 +1,30 @@
 # ScanLab
 
-A causal state-space laboratory in dependency-free Python: exact affine
-recurrence, a work-efficient associative prefix scan, fixed LTI convolution,
-and hand-derived reverse gradients for a small input-gated recurrence.
+ScanLab compares sequential state updates with associative prefix scans. It
+returns exact rational states, dependency graphs, arithmetic counts and
+derivative checks for diagonal and small full-matrix recurrences. A separate
+floating-point model shows input gating, streaming and rounding failures.
+It uses only Python's standard library.
 
-## v0.3: coupled dense states
+These are inspectable reference calculations, not a trained sequence model or
+a speed benchmark. Every operation runs serially in Python.
+
+## Commands
+
+| Command | What it returns |
+|---|---|
+| `python -m scanlab demo` | Diagonal scan, LTI convolution, float failures and gated-model derivative checks. |
+| `python -m scanlab audit examples/input.json` | Exact diagonal states, scan graph and work/span counts for supplied pairs. |
+| `python -m scanlab adjoint-demo` | Saved diagonal JVP, VJP and squared-loss Hessian-vector checks. |
+| `python -m scanlab adjoint examples/adjoint-input.json` | Those diagonal derivative checks for supplied coefficients, directions, cotangents and targets. |
+| `python -m scanlab dense-demo` | Saved full-matrix states, derivatives, operation counts and failure controls. |
+| `python -m scanlab dense examples/dense-input.json` | Full-matrix audit for supplied transitions, directions and cotangents. |
+
+## Coupled dense states
 
 ![Coupled states, full matrix gradients and real dense work](https://raw.githubusercontent.com/midya8/scanlab/1e6f1f4edc06d38b6babd203281c1efb836965b7/assets/dense-audit.svg)
 
-The new exact full-matrix path mixes state coordinates rather than assuming
+The exact full-matrix path mixes state coordinates rather than assuming
 diagonal dynamics. Noncommuting affine composition, singular reset steps,
 transposed next-matrix adjoints, outer-product matrix gradients and full
 parameter JVP/VJP certificates are all exposed. The transpose identity is
@@ -36,11 +52,11 @@ python -m scanlab dense examples/dense-input.json
 bash examples/dense-demo.sh
 ```
 
-## v0.2: exact reverse scans and curvature
+## Exact reverse scans and curvature
 
 ![Exact reverse scan, transposition and Hessian-vector certificates](https://raw.githubusercontent.com/midya8/scanlab/f30336e029fc595a9c2b6b2b60de44c85c48bc18/assets/adjoint-audit.svg)
 
-The new exact path differentiates the supplied diagonal affine pairs, separately
+The exact diagonal path differentiates the supplied diagonal affine pairs, separately
 from the float gated model below. Shifted-decay reverse scans return every
 parameter VJP; tangent scans return every state JVP. The exact dot-product
 identity is `-817/120 = -817/120`. A deliberately wrong reverse index produces
@@ -70,7 +86,7 @@ bash examples/adjoint-demo.sh
 
 ![Exact algebra, actual work, floating failure and gradients](https://raw.githubusercontent.com/midya8/scanlab/42355326cba179c5af1e8225192162918eac532c/assets/scan-audit.svg)
 
-## The claims are deliberately separate
+## What the comparisons show
 
 - **Same exact states, different dependency graph.** For the 16-token,
   two-state rational fixture, sequential recurrence and scan agree exactly.
@@ -97,7 +113,7 @@ bash examples/adjoint-demo.sh
   preserve the causal streaming outputs. A tested descent step reduces the
   fixture loss; no learned-task, language-model or generalization claim.
 
-## Run offline
+## Tests and input contracts
 
 ```bash
 python -m scanlab demo
@@ -114,7 +130,7 @@ probes, 64 streaming partitions, strict input errors and both real failure
 controls. The 114-cell figure binds the complete report, including hidden
 intermediate factors, not only headline numbers. Five CI jobs check Python
 3.10-3.13 plus all six commands from an installed nine-module wheel outside checkout.
-The new 68-cell SVG binds every shown value and embeds all five full scan
+The 68-cell adjoint SVG binds every shown value and embeds all five full scan
 DAGs; the original 114-cell figure is unchanged.
 
 ```python
